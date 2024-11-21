@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.1ed776e6.css",
-    "main.js": "/static/js/main.c283f1fb.js",
+    "main.js": "/static/js/main.954f92d8.js",
     "static/js/453.31437c9f.chunk.js": "/static/js/453.31437c9f.chunk.js",
     "static/media/Futura Heavy Italic font.ttf": "/static/media/Futura Heavy Italic font.815a0751cf3a349980ef.ttf",
     "static/media/Futura Heavy font.ttf": "/static/media/Futura Heavy font.af72c25a6945b0f48abb.ttf",
@@ -9,11 +9,11 @@
     "static/media/Rheiborn_Sans_Clean.otf": "/static/media/Rheiborn_Sans_Clean.3418344354152b1d55ac.otf",
     "index.html": "/index.html",
     "main.1ed776e6.css.map": "/static/css/main.1ed776e6.css.map",
-    "main.c283f1fb.js.map": "/static/js/main.c283f1fb.js.map",
+    "main.954f92d8.js.map": "/static/js/main.954f92d8.js.map",
     "453.31437c9f.chunk.js.map": "/static/js/453.31437c9f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1ed776e6.css",
-    "static/js/main.c283f1fb.js"
+    "static/js/main.954f92d8.js"
   ]
 }

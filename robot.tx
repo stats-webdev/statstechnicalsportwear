@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /Admin
+Disallow: /Dashboard
+Disallow: /Add
+Disallow: /Ads
+Disallow: /Banner
+Disallow: /UpdateType
+Disallow: /SizeChart
+Disallow: /Thumbnail

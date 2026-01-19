@@ -1,0 +1,120 @@
+.recommended-products {
+    margin-top: 2rem;
+    justify-content: center;
+    text-align: center;
+  }
+  .recommended-products h3{
+    font-family: 'Futura Heavy';
+    margin-top: 10px;
+    font-weight: lighter;
+    font-size:  18px;
+  }
+  
+  .recommended-products-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px; /* No gap between items */
+    height: 100%;
+    justify-content: center;
+    padding: 5rem;
+    margin-top: -50px;
+  }
+  .recommended-products-grid-image {
+    width: 70%; /* Resize the images */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0; /* Remove any margin around images */
+    object-fit: cover; /* Ensure images fill the grid cell */
+    display: block; /* Remove any unwanted spacing */
+  }
+  
+  .recommended-product {
+    text-align: center;
+    width: 100%; /* 70% width for each product card */
+    margin: 0; /* Remove extra margin */
+  }
+  
+  .recommended-product img {
+    height: 450px; /* Maintain aspect ratio */
+    border-bottom: 1px solid #eee; /* Separate the image */
+    object-fit: cover;
+  }
+  
+  .recommended-product-name {
+    margin-top: 0.5rem;
+    font-size: 20px;
+  }
+  
+  .recommended-product p {
+    font-size: 14px;
+  }
+  .bestseller-tag1 {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color: black;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    z-index: 10;
+    font-family: "Futura Heavy";
+  }
+  .onsale-tag1 {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    z-index: 10;
+    font-family: "Futura Heavy";
+  }
+  @media (max-width: 1000px) {
+    .recommended-products-grid {
+      flex: 1;
+      display: grid;
+      gap: 10px; /* No gap between items */
+      height: 100%;
+      justify-content: flex-start;
+      padding: 2rem;
+      margin-top: -30px;
+      overflow-x: auto;
+      grid-template-columns: repeat(4, 1fr);
+    }
+      .recommended-product {
+        position: relative; /* Ensure the parent is positioned */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      .recommended-product img
+      {
+        height: 200px; /* Maintain aspect ratio */
+      }
+      .recommended-products h3{
+        font-size: 12px;
+      }
+      .recommended-product p {
+        font-size: 10px;
+      }
+      .recommended-products h2{
+        font-size: 18px;
+      }
+      .bestseller-tag1, .onsale-tag1 {
+        position: absolute; /* Keep them floating */
+        top: 0px; /* Adjust placement */
+        left: 0px;
+        font-size: 10px;
+        width: 50%; /* Prevent width issues */
+        z-index: 10; /* Ensure it's above other elements */
+      }
+     }

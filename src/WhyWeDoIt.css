@@ -1,0 +1,40 @@
+.WhyWeDoItContainer {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    text-align: justify;
+    margin-bottom: 300px;
+    margin-top: 50px;
+  }
+  .WhyWeDoItContainer p {
+    font-family: "Futura Medium";
+    font-size: 16px;
+  }
+    
+  .WhyWeDoItContainer h3 {
+    font-family: "Futura Heavy";
+    font-size: 17px;
+  }
+  .WhyWeDoItContainer strong {
+    font-family: "Futura Heavy";
+    font-size: 17px;
+  }
+  .footerbottom {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  @media (max-width: 899px)
+  {
+    .WhyWeDoItContainer {
+        width: 90%;
+        margin-top: 20px;
+        margin-bottom: 50px;
+      }
+      .WhyWeDoItContainer p {
+        font-size: 14px;
+      }
+  }

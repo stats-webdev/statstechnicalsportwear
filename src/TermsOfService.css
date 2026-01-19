@@ -1,0 +1,32 @@
+.TermsOfServiceContainer {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    text-align: justify;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .TermsOfServiceContainer p {
+    font-family: "Futura Medium";
+    font-size: 16px;
+  }
+    
+  .TermsOfServiceContainer h3 {
+    font-family: "Futura Heavy";
+  }
+  @media (max-width: 899px)
+  {
+    .TermsOfServiceContainer {
+        width: 90%;
+        margin-top: 20px;
+        margin-bottom: 50px;
+      }
+      .TermsOfServiceContainer p {
+        font-family: "Futura Medium";
+        font-size: 14px;
+      }
+        
+  }

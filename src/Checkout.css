@@ -1,0 +1,579 @@
+.error-message{
+  font-family: 'Futura Medium';
+  color: rgb(211, 32, 32);
+}
+.name-fields {
+  display: flex;
+  gap: 100px; /* Add some gap between the input fields */
+  width: 111%;
+}
+.form-group {
+  flex: 1; /* Each input takes up equal width */
+}
+.form-group select {
+  width: 127%;
+  padding: 14px;
+  margin-top: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-group select::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+.form-group select:focus {
+  border-color: black;
+  outline: none;
+}
+.checkout-container {
+  justify-content: center;
+  display: flex;
+}
+.checkout-content {
+  display: flex;
+  width: 100%;
+
+}
+.checkout-confirm
+{
+  display: flex;
+}
+.shipping
+{
+  display: flex;
+  margin-left: 4%;
+}
+.shipping1
+{
+  display: flex;
+  margin-left: 10%;
+}
+
+.shipping-details {
+  margin-top: -70px;
+  flex: 0.6;
+  padding: 100px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.payment-details {
+  flex: 0.6;
+  padding: 20px;
+  border-radius: 8px; 
+  
+}
+.payment-details1 {
+
+  border: 1px solid rgba(0, 0, 0, 0.199);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.shipping-details input {
+  width: 120%;
+  padding: 14px;
+  margin-top: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.login-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.login-checkbox input {
+  margin-right: 8px;
+}
+
+.submit-button {
+  width: 128%;
+  padding: 12px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.submit-button:hover {
+  background-color: #444;
+}
+.submit-button1 {
+  width: 100%;
+  padding: 12px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.submit-button1:hover {
+  background-color: #444;
+}
+
+.order-summary {
+  flex: 0.35;
+  padding: 50px;
+  border-left: 1px solid #e0e0e0;
+  font-family: Arial, sans-serif;
+  position: fixed; /* Keep it fixed on the screen */
+  right: 0%; /* Move it to the right side of the screen */
+  top: 0; /* Align it to the top */
+  height: 100%; /* Make it span the full height of the screen */
+  background-color: #ffffff; /* Optional: Add a background color for better visibility */
+  width: 35%;
+}
+
+
+.order-summary-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.order-summary-item-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+  object-fit: cover;
+  margin-right: 10px;
+  margin-bottom: 20px;
+}
+
+.order-summary-item-details {
+  margin-left: 20px;
+  margin-top: 10px;
+  flex: 1;
+  font-size: 14px;
+  color: #555;
+}
+
+.order-summary-item-details h3 {
+  font-size: 14px;
+  margin: 0 0 5px;
+}
+.order-summary-details
+{
+  display: flex;
+}
+
+.price-container {
+  display: flex;
+  gap: 8px;
+}
+
+.sale-price {
+  color: #e63946;
+  font-weight: bold;
+}
+
+.total-price {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: right;
+}
+.quantity-badge {
+  position: absolute;
+  top: 0px;
+  left: 50px;
+  background-color: #ff0000b2; /* Red badge color */
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.order-summary-item-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Add some gap between the buttons */
+  width: 128%;
+}
+
+.shipping-button {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  justify-self: center;
+  align-items: center;
+  font-size: medium;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: white; /* Set the default background to white */
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.shipping-method1 {
+  flex: 1;
+  text-align: center;
+  pointer-events: none; 
+}
+
+
+.shipping-button:hover {
+  border-color: black;
+}
+
+
+.shipping-button.active {
+  background-color: #000000;
+  color: white;
+  border-color: #ffffff;
+  box-shadow: 0px 4px 12px #0000006b;
+}
+.payment-button {
+  font-size: medium;
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.payment-button.active {
+  background-color: #000000;
+  color: white;
+  border-color: #ffffff;
+  box-shadow: 0px 4px 12px #0000006b;
+}
+.h2Payment
+{
+  margin-bottom: 50px;
+  font-size: 1.5rem;
+}
+
+.payment-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  
+}
+
+.amount {
+  float: right;
+  font-weight: bold;
+}
+
+.pending {
+  color: red;
+  font-weight: bold;
+}
+
+.payment-method {
+  margin-top: 15px;
+  
+}
+
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa; /* Subtle light background */
+  border: 1px solid #ddd; /* Add a border for definition */
+  border-radius: 8px; /* Smooth corners */
+  padding: 10px 20px; /* Adequate spacing */
+  margin-bottom: 16px; /* Space between items */
+  font-size: 16px; /* Readable text size */
+  color: #333; /* Neutral text color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+
+}
+
+
+.qr-code {
+  text-align: center;
+  justify-content: center;
+  height: fit-content;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.192); /* Subtle shadow for depth */
+  margin-bottom: 10px;
+}
+
+.qr-image {
+  width: 75%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  
+}
+
+.upload-section,
+.reference-section {
+  margin: 20px 0;
+}
+
+.referenceInput
+{
+  width: 97%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-btn {
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #45a049;
+}
+
+.note {
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* Confirmation */
+/* ConfirmPaymentPage.css */
+.container {
+  font-family: 'Futura Medium', sans-serif;
+  max-width: 1200px; /* Adjusted for desktop screens */
+  margin: 0 auto;
+  padding: 30px; /* Increased padding for better spacing */
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container h1,
+.container h2 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+  font-weight: bold;
+  font-size: 28px; /* Larger font for desktop readability */
+}
+
+.map-container {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 30px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.map-container iframe {
+  border: none;
+  width: 100%;
+  height: 100; /* Increased height for better desktop display */
+  border-radius: 5px;
+}
+
+.order-details {
+  border: 1px solid #ddd;
+  padding: 25px;
+  border-radius: 10px;
+  margin-top: 30px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.order-details h3 {
+  margin-bottom: 20px;
+  color: #444;
+  font-weight: 600;
+  font-size: 24px; /* Larger font size for better desktop readability */
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.details-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.details-section p {
+  margin: 0;
+  color: #666;
+  font-size: 16px; /* Slightly larger font for readability */
+}
+
+.checkout-footer {
+  text-align: center;
+  margin-top: 40px; /* Increased margin for better spacing */
+  margin-bottom: 40px;
+}
+
+.checkout-footer button {
+  background-color: #000000;
+  color: white;
+  padding: 15px 30px; /* Larger padding for desktop buttons */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px; /* Larger font for emphasis on desktop */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.checkout-hr
+{
+  margin-top: 40px;
+  width: 127.5%;
+}
+.samedaydisclaimer
+{
+  font-family: 'Futura Medium';
+  font-size: 12px;
+  color: #ff0000d7;
+}
+
+
+@media (max-width: 599px) {
+  .checkout-confirm
+{
+  display: flex;
+}
+  .checkout-hr
+{
+  width: 100%;
+}
+  .name-fields {
+    display: block; /* Stack input fields vertically */
+    gap: 20px; /* Reduce the gap for smaller screens */
+    width: 100%;
+  }
+
+  .form-group {
+    width: 100%; /* Ensure full-width inputs */
+  }
+
+  .form-group select {
+    width: 100%; /* Make the select field responsive */
+    padding: 12px; /* Slightly smaller padding for mobile */
+  }
+
+
+  .checkout-content {
+    flex-direction: column; /* Stack sections vertically */
+    margin-left: 0; /* Remove horizontal margin */
+    width: 96%;
+  }
+
+  .shipping1 {
+    margin-left: 0; /* Align to default position */
+    flex-direction: column; /* Stack shipping details */
+  }
+  .shipping
+  {
+    margin-left: -10px; /* Align to default position */
+    flex-direction: column; /* Stack shipping details */
+  }
+
+  .shipping-details, 
+  .payment-details {
+    flex: 1;
+    padding: 20px;
+    margin-top: 0; /* Remove negative margin */
+    width: 100%; /* Ensure full-width */
+  }
+
+  .order-summary {
+    position: static; /* Remove fixed positioning for mobile */
+    width: 100%;
+    padding: 20px;
+    border: none;
+    margin-top: 20px; /* Add spacing for separation */
+  }
+
+  .submit-button, 
+  .submit-button1 {
+    width: 100%; /* Full-width for buttons */
+  }
+
+  .button-group {
+    width:  100%;
+    gap: 8px; /* Adjust gap for smaller screens */
+  }
+
+  .shipping-button, 
+  .payment-button {
+    font-size: small; /* Reduce font size for buttons */
+    padding: 10px; /* Adjust padding for better fit */
+  }
+
+  .qr-image {
+    width: 100%; /* Ensure QR code fits on small screens */
+  }
+
+  .info {
+    flex-direction: column; /* Stack info content */
+    align-items: flex-start; /* Align text to the left */
+    padding: 10px; /* Adjust padding */
+  }
+
+  .order-summary-item {
+    flex-direction: column; /* Stack items vertically */
+    align-items: left; /* Align to the left */
+  }
+
+  .order-summary-item-image {
+    width: 50px; /* Adjust image size */
+    height: 50px;
+  }
+
+  .order-summary-item-details {
+    margin-left: 0; /* Align details properly */
+    margin-top: 10px;
+    text-align: left; /* Align text to the left */
+  }
+
+
+  .price-container {
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  .shipping-details input {
+    width: 93%;
+    padding: 14px;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  .quantity-badge {
+    left: 35px;
+  }
+}

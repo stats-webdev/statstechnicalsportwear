@@ -3,18 +3,41 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <!-- TrustBox script -->
+<script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+<!-- End TrustBox script -->
+    <meta name="trustpilot-one-time-domain-verification-id" content="a03c2e42-871d-4a34-aa6f-546c84533bcf"/>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="Web site created using create-react-app"
     />
+
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+      <script>
+  // Secret token only you know
+  const secretToken = "shigeo123"; 
+
+  // Check the URL for your secret token
+  const urlParams = new URLSearchParams(window.location.search);
+  const devMode = urlParams.get("dev"); // e.g., ?dev=shigeo123
+
+  // Only load the devtools blocker if the token is missing or incorrect
+  if (devMode !== secretToken && (window.location.hostname !== 'localhost' || window.location.port !== '3000')) {
+    const script = document.createElement('script');
+    script.src = "https://cdn.jsdelivr.net/npm/disable-devtool";
+    script.setAttribute('disable-devtool-auto', '');
+    script.setAttribute('disable-menu', '');
+    script.setAttribute('ondevtoolopen', 'window.close();');
+    document.head.appendChild(script);
+  }
+</script>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -24,7 +47,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Stats</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

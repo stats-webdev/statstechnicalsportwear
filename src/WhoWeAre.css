@@ -1,0 +1,40 @@
+.WhoWeAreContainer {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    text-align: justify;
+    margin-bottom: 250px;
+    margin-top: 50px;
+  }
+  .WhoWeAreContainer p {
+    font-family: "Futura Medium";
+    font-size: 16px;
+  }
+    
+  .WhoWeAreContainer h3 {
+    font-family: "Futura Heavy";
+    font-size: 17px;
+  }
+  .WhoWeAreContainer strong {
+    font-family: "Futura Heavy";
+    font-size: 17px;
+  }
+  .footerbottom {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  @media (max-width: 899px)
+  {
+    .WhoWeAreContainer {
+        width: 90%;
+        margin-top: 20px;
+        margin-bottom: 50px;
+      }
+      .WhoWeAreContainer p {
+        font-size: 14px;
+      }
+  }

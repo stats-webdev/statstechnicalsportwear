@@ -1,0 +1,35 @@
+.WhatWeDoContainer {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    text-align: justify;
+    margin-bottom: 100px;
+    margin-top: 50px;
+  }
+  .WhatWeDoContainer p {
+    font-family: "Futura Medium";
+    font-size: 16px;
+  }
+    
+  .WhatWeDoContainer h3 {
+    font-family: "Futura Heavy";
+    font-size: 17px;
+  }
+  .WhatWeDoContainer strong {
+    font-family: "Futura Heavy";
+    font-size: 17px;
+  }
+  @media (max-width: 899px)
+  {
+    .WhatWeDoContainer {
+        width: 90%;
+        margin-top: 20px;
+        margin-bottom: 50px;
+      }
+      .WhatWeDoContainer p {
+        font-size: 14px;
+      }
+  }

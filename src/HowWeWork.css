@@ -1,0 +1,144 @@
+/* Container */
+.howwework {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+  font-family: "Futura Heavy";
+  color: #000;
+}
+
+/* Header */
+.howwework__title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+}
+
+.howwework__tagline {
+  text-align: center;
+  font-size: 1rem;
+  white-space: nowrap;
+  margin-bottom: 2rem;
+}
+
+/* Grid */
+.howwework__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 150px;
+}
+
+/* Individual column */
+.howwework__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.howwework__subtitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+/* Hoverable content container */
+.howwework__content {
+  position: relative;
+  width: auto;
+  height: 380px;
+
+}
+
+/* Image: visible by default */
+.howwework__content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+  display: block;
+}
+
+/* Paragraph: hidden by default */
+.howwework__content p {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  background: white;
+  color: black;
+  font-family: "Futura Medium";
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: justify;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  overflow-y: auto;
+}
+
+/* Hover behavior */
+.howwework__content:hover img {
+  opacity: 0;
+}
+
+.howwework__content:hover p {
+  opacity: 1;
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+.howwework {
+    padding: 2rem 1rem;
+  }
+    .howwework__title {
+    font-size: 1.3rem;
+  }
+
+  .howwework__content {
+    position: static;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  .howwework__content p {
+    position: static;
+    width: 100%;
+    height: auto;
+    opacity: 1 !important; /* force visible */
+    transition: none;
+  }
+    .howwework__item img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 320px;
+    height: 400px;          /* Keeps all three images equal height */
+    object-fit: cover;      /* Crop without distortion */
+  }
+
+  .howwework__content p {
+    padding: 1rem 0;
+    overflow: visible;
+  }
+
+  .howwework__content:hover img,
+  .howwework__content:hover p {
+    opacity: 1;
+  }
+.howwework__tagline {
+    font-size: 0.95rem;
+    padding: 0 1rem;
+    white-space: wrap;
+  }
+  .howwework__grid {
+  gap: 0px;
+}
+}
+  

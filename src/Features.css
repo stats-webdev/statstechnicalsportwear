@@ -1,0 +1,121 @@
+.features {
+  width: 90%;
+  margin-left: 5%;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-label {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns for larger screens */
+  gap: 50px;
+}
+
+.feature-image {
+  display: flex;
+  gap: 30px;
+}
+
+.technical-image {
+  display: flex;
+  gap: 30px;
+}
+
+.feature-main-image {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Grid for large screens */
+  margin-top: 10px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  gap: 50px;
+}
+
+.technical-main-image {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 10px;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  gap: 0px;
+}
+
+.technical {
+  margin-top: 120px;
+  width: 90%;
+  margin-left: 5%;
+  align-items: center;
+  justify-content: center;
+}
+
+/* New styles for image and label container */
+.image-label-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.image-label-container img {
+  width: 100%; /* Make sure the images are responsive */
+  object-fit: cover; /* Maintain image aspect ratio */
+  margin-bottom: 10px; /* Add space between image and label */
+}
+
+.image-label-container p {
+  text-align: center; /* Center-align text */
+  font-size: 16px; /* Adjust font size as needed */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 599px) {
+  .feature-label {
+    grid-template-columns: 1fr; /* Stack feature labels vertically */
+    gap: 20px; /* Reduced gap for mobile */
+  }
+
+  .feature-main-image {
+    grid-template-columns: 1fr; /* Stack images vertically on mobile */
+    gap: 20px;
+    height: auto; /* Adjust height for mobile */
+  }
+
+  .feature-image {
+    display: flex;
+    flex-direction: column; /* Stack images vertically for mobile */
+    gap: 20px;
+  }
+
+  .technical {
+    margin-top: 40px; /* Reduce top margin for mobile */
+    width: 100%;
+    margin-left: 0;
+    padding-bottom: 20px; /* Added padding to prevent overlap */
+  }
+
+  .features {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .technical-image {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .technical-main-image {
+    display: grid;
+    grid-template-columns: 1fr; /* Stack images vertically for mobile */
+    margin-top: 20px;
+    width: 100%;
+    height: auto; /* Adjust height for smaller screens */
+    object-fit: cover;
+    gap: 0;
+  }
+}

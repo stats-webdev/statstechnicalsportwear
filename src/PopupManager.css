@@ -1,0 +1,93 @@
+.popup-admin {
+  max-width: 1000px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 8px;
+ border: 1px solid #000000;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.popup-admin h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.popup-admin label {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  font-size: 14px;
+  color: #222;
+}
+
+.popup-admin input[type="checkbox"],
+.popup-admin input[type="radio"] {
+  margin-right: 8px;
+  accent-color: #1a73e8; /* Blue toggle color */
+}
+
+.popup-admin div {
+  margin: 15px 0;
+}
+
+.popup-admin input[type="text"],
+.popup-admin input[type="url"],
+.popup-admin input:not([type="checkbox"]):not([type="radio"]),
+.popup-admin textarea {
+  width: 90%;
+  background-color: #1a1c23;
+  color: #f1f1f1;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-top: 6px;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+.popup-admin select {
+  width: 92.3%;
+  background-color: #1a1c23;
+  color: #f1f1f1;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-top: 6px;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.popup-admin textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.popup-admin select {
+  appearance: none;
+}
+
+.popup-admin input::placeholder,
+.popup-admin textarea::placeholder {
+  color: #999;
+}
+
+.popup-admin button {
+  display: inline-block;
+    background-color: black;
+    color: white;
+
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  border: none;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+
+}
+
+.popup-admin button:hover {
+  background-color: #0f0f0fe7;
+}

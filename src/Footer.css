@@ -1,0 +1,84 @@
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .footer-section {
+    flex: 1;
+    margin: 10px;
+  }
+  
+  .footer-heading {
+    color: #fff;
+    margin-bottom: 10px;
+    font-family: "Rheiborn sans clean";
+    font-weight: lighter;
+    text-transform: uppercase;
+    font-size: larger;
+  }
+  
+  .footer-list {
+ 
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    color: #8b8b8b;
+  }
+  
+  .footer-list li {
+    margin-bottom: 5px;
+    font-family: "Futura Heavy";
+  }
+  
+  .footer-connect-links {
+    display: flex;
+    gap: 15px;
+    margin: 10px 0;
+  }
+  
+  .footer-connect-links a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+  }
+  
+  .footer-connect-links a:hover {
+    color: #8b8b8b;
+  }
+  
+  
+  .footer-button {
+    margin-top: 10px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .footer-button:hover {
+    background-color: #444;
+  }
+  
+  .footer-strava {
+    margin-top: 10px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .footer-copyright {
+    background-color: #222;
+    text-align: center;
+    padding: 10px;
+    font-family: serif;
+    color: #ccc;
+  }
+  

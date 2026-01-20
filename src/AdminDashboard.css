@@ -1,0 +1,169 @@
+
+.body {
+    margin: 0;
+    overflow: hidden;
+}/* Styles for the Admin Dashboard */
+
+.admin-dashboard {
+    display: flex;
+    height: 94vh; /* Full viewport height */
+    background-color: #ffffff; /* Dark background */
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.card {
+    background-color: rgb(235, 235, 235); /* Darker background for the card */
+    color: rgb(255, 255, 255); /* White text */
+    padding: 20px;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15); /* Shadow for depth */
+    width: 40%; /* Fixed width for the card */
+    height: auto;
+    text-align: center; /* Center content within the card */
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.dashboard-title {
+    color: rgb(0, 0, 0);
+    margin-bottom: 40px;
+    font-family: "Rheiborn Sans Clean";
+    font-weight: lighter;
+    font-size: 2.5rem; /* Smaller title font size for card */
+}
+
+.button-group1 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: left; /* Center the buttons */
+    gap: 10px; /* Space between buttons */
+
+}
+.content-section {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.dashboard-button {
+    color: black; /* White text */
+    background-color: transparent;
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: medium;
+    font-family: "Futura Medium";
+    text-transform: uppercase;
+    border-radius: 8px;
+    width: 250px;
+    border:none;
+    text-align: left;
+}
+.dashboard-button.active
+{
+   background-color: black;
+   color: #ffffff;
+}
+
+.dashboard-button:hover {
+    border: 1px solid black;
+}
+
+.notification {
+    color: #ffffff; /* White text */
+    padding: 10px 20px;
+    background-color: #2c9b35; /* Green notification background */
+    border-radius: 8px;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    font-weight: bold;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    animation: fadeInOut 3s forwards;
+}
+.product-data-container
+{
+    height: 95%;
+}
+.product-data-table-container
+{
+
+    overflow-y: scroll;
+    height: 82%;
+}
+.deletemodal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.deletemodal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+.deletemodal-content p{
+  font-family:'Futura Medium' ;
+  font-size: 17px;
+}
+
+.deletebuttondanger {
+  font-family:'Futura Medium' ;
+  font-size: 15px;
+  padding: 8px;
+  background-color: #000000;
+  color: white;
+  margin-right: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.deletebutton {
+  font-family:'Futura Medium' ;
+  font-size: 15px;
+   padding: 8px;
+  margin-right: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+.deletebutton:hover
+{
+    background-color: #cccccc;
+}
+.deletebuttondanger:hover
+{
+    background-color: #1b1b1b;
+}
+
+
+
+/* Fade-in and fade-out animation */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 0;
+    }
+}

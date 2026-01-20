@@ -1,0 +1,165 @@
+.aero-container {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+  padding: 0rem;
+  /*border-radius: 12px;*/
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  width: 60%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.aero-left {
+  flex: 1 1 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aero-image {
+  width: 100%;
+  /*border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;*/
+  object-fit: cover;
+}
+
+.aero-right {
+  flex: 1 1 400px;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+.fabric-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.fabric-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-position: center 30%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.fabric-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 20px;
+}
+
+.fabric-content h2 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: white;
+  font-family: "trebuc";
+}
+
+.fabric-content p {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.aero-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+    font-family: 'trebuc';
+}
+
+.aero-button {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 0.8rem 1.8rem;
+  border: none;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  font-family: 'trebuc';
+  font-size: 14px;
+}
+
+.aero-description {
+  font-family: 'trebuc';
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+.highlightsh3
+{
+  font-family: 'trebuc';
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #595959;
+}
+.aero-highlights div{
+  font-family: 'trebuc';
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #595959;
+}
+.aero-highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  width: 50%;
+  white-space: nowrap;
+
+}
+  @media (max-width: 780px) {
+    .aero-container {
+  width: 80%;
+}
+.aero-image {
+  width: 100%;
+ /*border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom-left-radius: 0px;*/
+  object-fit: cover;
+}
+.aero-title {
+  font-size: 1.5rem;
+}
+.aero-description {
+  font-size: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+.highlightsh3
+{
+  font-size: 1.2rem;
+}
+.aero-highlights div{
+  font-size: 0.85rem;
+}
+.fabric-section {
+    height: auto;
+    padding: 60px 0;
+  }
+
+  .fabric-content {
+    top: auto;
+    transform: none;
+    padding: 0 10px;
+  }
+
+  .fabric-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .fabric-content p {
+    font-size: 0.8rem;
+  }
+  }

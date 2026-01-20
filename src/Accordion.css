@@ -1,0 +1,88 @@
+@font-face {
+  font-family: "Futura Heavy";
+  src: url("Fonts/Futura Heavy font.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.accordion {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+   
+    
+  }
+  
+  .accordion-section {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .accordion-section:last-child {
+    border-bottom: none;
+  }
+  
+  .accordion-header {
+    background: #fff;
+    color: #333;
+    padding: 15px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: "Futura Heavy";
+    font-weight: lighter;
+  }
+  
+  .accordion-icon {
+    font-size: 20px;
+  }
+  
+  .accordion-content {
+    padding: 15px;
+    background: #f9f9f9;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+    white-space: pre-line;
+    
+  }
+  
+  .accordion-header:hover {
+    background: #f0f0f0;
+  }
+  .mcare
+  {
+    font-family: 'Futura Medium';
+    font-size: 15px;
+  }
+  .mcare-list{
+    text-align: center;
+    font-family: 'Futura Medium';
+    font-size: 17px;
+    color: #333;
+  }
+  .mcarelink
+  {
+     font-family: "Futura Heavy";
+     cursor: pointer;
+     color: #333;
+  }
+    .mcarelink:hover
+  {
+      color: #585858;
+  }
+@media (max-width:1000px){
+  
+  .accordion-content {
+    text-align: left;
+    
+  }
+  
+  }

@@ -1,0 +1,59 @@
+.bannerManagerContainer {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    background: #f9f9f9;
+  }
+  .bannerManagerContainer h2{
+    justify-content: center;
+    text-align: center;
+    font-size: 2rem ;
+  }
+  
+  .currentBanner {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .bannerPreview {
+    max-width: 100%;
+    max-height: 200px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .updateBanner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .bannerInput {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .updateButton {
+    padding: 10px;
+    font-size: 14px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .updateButton:hover {
+    background-color: #2e2e2e;
+  }
+  
+  .message {
+    margin-top: 10px;
+    color: green;
+    text-align: center;
+  }
+  

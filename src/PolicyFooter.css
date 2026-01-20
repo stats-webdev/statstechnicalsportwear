@@ -1,0 +1,75 @@
+/* PolicyFooter.css */
+.policyfooter {
+    padding: 10px 0;
+    text-align: center;
+  }
+  
+  .list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    white-space: nowrap;
+    
+  }
+  
+  .link {
+    background-color: transparent;
+    color: blue;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: underline;
+    padding: 5px 10px;
+  }
+  
+  .policy-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .policy-modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 60%;
+    width: 100%;
+    text-align: center;
+    max-height: 80%;
+  }
+  
+  .modal-content1 {
+    height:  50vh;
+    overflow-y: scroll; /* Enables vertical scrolling */
+    padding: 10px;
+    background-color: white; /* Consistent background color */
+  }
+  
+  .policy-close-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin-top: 10px;
+  }
+  @media (max-width: 599px) {
+    .list {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        white-space: wrap;
+      }   
+      .link {
+        padding: 1px;
+      }
+      
+}

@@ -1,0 +1,48 @@
+.PrivacyPolicyContainer {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    text-align: justify;
+    margin-bottom: 180px;
+    margin-top: 50px;
+  }
+  .PrivacyPolicyContainer p {
+    font-family: "Futura Medium";
+    font-size: 16px;
+
+  }
+    
+  .PrivacyPolicyContainer h3 {
+    font-family: "Futura Heavy";
+  }
+  .PrivacyPolicyContainer table {
+    font-family: "Futura Medium";
+    font-size: 16px;
+  }
+  .PrivacyPolicyContainer h1
+  {
+    font-family: "Futura Heavy";
+    font-size: 34px;
+  }
+  @media (max-width: 899px)
+  {
+    .PrivacyPolicyContainer {
+        width: 90%;
+        margin-top: 20px;
+        margin-bottom: 50px;
+      }
+      .PrivacyPolicyContainer p {
+        font-size: 14px;
+    
+      }
+      .PrivacyPolicyContainer table {
+        font-size: 14px;
+      }
+      .PrivacyPolicyContainer h1
+      {
+        font-size: 24px;
+      }
+  }

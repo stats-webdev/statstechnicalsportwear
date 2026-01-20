@@ -40,6 +40,12 @@ import Lookbook from './Lookbook';
 import LookbookPage from './LookbookPage';
 import PopupExamples from './Popup';
 import PopupAdmin from './PopupManager';
+<<<<<<< HEAD
+=======
+import AthletesPage from './AthletesPage';
+import CommunityPage from './CommunityPage';
+import EarlyAccess from './EarlyAccess';
+>>>>>>> ea5d65dfe8d58888ae832586605d18e5de23fc91
 
 
 function App() {
@@ -206,6 +212,12 @@ useEffect(() => {
         <Route path="/FabricTech" element={<FabricTech />} />
         <Route path="/Lookbook" element={<Lookbook />} />
         <Route path="/lookbook/:id" element={<LookbookPage />} />
+<<<<<<< HEAD
+=======
+        <Route path="/Athletes" element={<AthletesPage />} />
+        <Route path="/Community" element={<CommunityPage />} />
+        <Route path="/EarlyAccess" element={<EarlyAccess products={products} />} />
+>>>>>>> ea5d65dfe8d58888ae832586605d18e5de23fc91
 
         <Route element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
           <Route path="/popup" element={<PopupAdmin />} />

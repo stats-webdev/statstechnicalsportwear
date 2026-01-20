@@ -1,0 +1,221 @@
+/* Athletes Page css */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: #fafafa;
+}
+
+/* Hero Banner */
+.hero-banner {
+  position: relative;
+  height: 450px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 0 20px;
+  max-width: 800px;
+}
+
+.hero-title {
+  font-size: 64px;
+  font-weight: 800;
+  margin: 0 0 24px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.hero-description {
+  font-size: 19px;
+  line-height: 1.7;
+  margin: 0;
+  opacity: 0.95;
+}
+
+/* Athlete Section */
+.athlete-section {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 40px 0; /* Reduced from 60px */
+}
+
+.athlete-section.bg-white { background-color: #fff; }
+.athlete-section.bg-gray { background-color: #fafafa; }
+
+.athlete-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+  width: 100%;
+}
+
+/* Image */
+.athlete-image-wrapper { width: 100%; }
+.athlete-image-wrapper.order-1 { order: 1; }
+.athlete-image-wrapper.order-2 { order: 2; }
+.athlete-image {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+/* Content - Tightened Gaps */
+.athlete-content { width: 100%; }
+.athlete-content.order-1 { order: 1; }
+.athlete-content.order-2 { order: 2; }
+
+.athlete-sport {
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  color: #777;
+  margin-bottom: 2px; /* Extra Tight */
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.athlete-name {
+  font-size: 52px;
+  font-weight: 400;
+  margin: 0 0 8px 0; /* Extra Tight */
+  letter-spacing: 0.5px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #222;
+}
+
+.athlete-divider {
+  width: 60px;
+  height: 3px;
+  background-color: #000;
+  margin-bottom: 12px; /* Extra Tight */
+}
+
+.athlete-description {
+  font-size: 15px;
+  line-height: 1.6; /* More compact line height */
+  color: #444;
+  margin-bottom: 15px; /* Extra Tight */
+}
+
+/* Social Media */
+.social-section { margin-bottom: 15px; } /* Extra Tight */
+.social-title {
+  font-size: 13px;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  margin-bottom: 8px; /* Extra Tight */
+  text-transform: uppercase;
+  color: #222;
+}
+
+.social-links { display: flex; gap: 15px; }
+.social-link {
+  width: 32px; /* Slightly smaller for minimal look */
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.social-link:hover { transform: scale(1.1); }
+
+/* Highlights - Minimal & Black Icons */
+.highlights-title {
+  font-size: 13px;
+  letter-spacing: 2.5px;
+  font-weight: 700;
+  margin-bottom: 10px; /* Extra Tight */
+  text-transform: uppercase;
+  color: #222;
+}
+
+.highlights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Tighter gap */
+  max-height: 250px;
+  overflow-y: auto;
+  overflow-x: hidden; /* FIX: Removes horizontal scrollbar */
+}
+
+.highlight-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px; /* More compact padding */
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box; /* FIX */
+}
+
+.highlight-button:hover {
+  transform: translateX(4px);
+  border-color: #e0e0e0;
+}
+
+.highlight-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.highlight-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  color: #000; /* FORCE BLACK ICON */
+}
+
+/* REMOVED .highlight-icon.youtube color setting to keep it black */
+
+.highlight-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #222;
+}
+
+.highlight-arrow { color: #ccc; }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .athlete-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .athlete-image-wrapper.order-1, .athlete-image-wrapper.order-2 { order: unset; }
+}

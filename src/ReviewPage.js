@@ -8,18 +8,30 @@ const e = React.createElement;
 
 const POSTS_PER_PAGE = 6;
 const INITIAL_POST_COUNT = 9;
+const SPOTLIGHT_LIMIT = 4;
 
 export const featuresData = [
     {
         "id": "001",
-        "headline": "Physical: Asia’s Team Philippines Is In the Spotlight",
-        "subHeadline": "Inside the cutting-edge training that’s redefining athletic collaboration.",
+        "headline": "VOGUE PH X PHYSICAL ASIA",
+        "subHeadline": "Worn by athletes redefining the limits of performance. Featured in Vogue Philippines' interview of local athletes in Netflix's Physical: Asia.",
         "description": "At the heart of every championship lies a story of unity. We explore how elite teams are leveraging innovative strategies to foster a culture of peak performance and mutual trust.",
         "author": "By Vogue Philippines",
         "date": "2025-12-29",
-        "category": "SPOTLIGHT",
-        "imageUrl": "https://assets.vogue.ph/wp-content/uploads/2025/12/Vogue-Philippines-Physical-Asia-L-2240x1173.webp",
+        "category": "Partnerships",
+        "imageUrl": "https://i.pinimg.com/736x/cf/b3/3e/cfb33eb9873dcdce683481360090547c.jpg",
         "refLink": "https://vogue.ph/spotlight/physical-asia-team-philippines/"
+    },
+    {
+        "id": "017",
+        "headline": "Barefoot Runner ‘Tikya’",
+        "subHeadline": "From barefoot beginnings, we equip champions like Trixia 'Tikya' Arellano with purpose-built gear designed to fuel her journey.",
+        "description": "Learn about the inspiring projects and foundations our athletes are dedicating their time to, from youth mentorship programs to environmental advocacy, making a real difference in the world.",
+        "author": "By Liam Gallagher",
+        "date": "2024-10-15",
+        "category": "News",
+        "imageUrl": "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=2806&auto=format&fit=crop",
+        "refLink": "#"
     },
     {
         "id": "002",
@@ -45,7 +57,7 @@ export const featuresData = [
     },
     {
         "id": "004",
-        "headline": "Introducing the KOBE 2026 Jersey: Breathe, Perform, Conquer.",
+        "headline": "The KOBE 2026 Jersey: Breathe. Perform. Conquer.",
         "subHeadline": "The revolutionary fabric that adapts to your body in real-time.",
         "description": "Months of research and development culminate in our most advanced product yet. The ION-Flow Jersey features nano-sensor technology that optimizes thermoregulation and muscle support.",
         "author": "By STATS",
@@ -78,8 +90,8 @@ export const featuresData = [
     },
     {
         "id": "007",
-        "headline": "Beyond the Finish Line: Athlete-Led Community Initiatives",
-        "subHeadline": "STATS athletes are making an impact that transcends sport.",
+        "headline": "BAREFOOT RUNNER ‘TIKYA’",
+        "subHeadline": "From barefoot beginnings, we equip champions like Trixia 'Tikya' Arellano with purpose-built gear designed to fuel her journey.",
         "description": "Learn about the inspiring projects and foundations our athletes are dedicating their time to, from youth mentorship programs to environmental advocacy, making a real difference in the world.",
         "author": "By Liam Gallagher",
         "date": "2024-10-15",
@@ -147,44 +159,61 @@ const PostCard = ({ post, isLarge = false, swipeHandlers = {}, children }) => {
         }
     }, [post.id, isLarge]);
 
-    const content = [
-        e('div', { key: 'img', className: 'post-image-container' },
-            e('img', { 
-                src: post.imageUrl, 
-                alt: post.headline, 
-                className: 'post-image',
-                loading: 'lazy',
-                draggable: false,
-                onDragStart: (e) => e.preventDefault()
-            }),
-            isLarge && e('div', { className: 'image-overlay-vignette' }),
-            // Render children (indicators) inside the image container for overlay positioning
-            isLarge && children
-        ),
-        e('div', { key: 'txt', className: isLarge ? 'post-large-details' : 'post-medium-details' },
-            e('div', { className: 'category-label' }, post.category),
-            e('h2', { className: 'post-headline' }, post.headline),
-            isLarge && e('p', { className: 'post-subheadline' }, post.subHeadline),
-            e('div', { className: 'post-author-date' }, 
-                e('span', { className: 'author-name' }, post.author),
-                e('span', { className: 'divider' }, ' | '),
-                e('span', { className: 'post-date' }, formattedDate)
-            )
+    const imagePart = e('div', { key: 'img', className: 'post-image-container' },
+        e('img', { 
+            src: post.imageUrl, 
+            alt: post.headline, 
+            className: 'post-image',
+            loading: 'lazy',
+            draggable: false,
+            onDragStart: (e) => e.preventDefault()
+        }),
+        isLarge && e('div', { className: 'image-overlay-vignette' }),
+        // Render children (indicators) inside the image container for overlay positioning
+        isLarge && children
+    );
+
+    const textContent = [
+        e('div', { key: 'cat', className: 'category-label' }, post.category),
+        e('h2', { key: 'head', className: 'post-headline' }, post.headline),
+        isLarge && e('p', { key: 'sub', className: 'post-subheadline' }, post.subHeadline),
+        e('div', { key: 'meta', className: 'post-author-date' }, 
+            e('span', { className: 'author-name' }, post.author),
+            e('span', { className: 'divider' }, ' | '),
+            e('span', { className: 'post-date' }, formattedDate)
         )
     ];
 
+    if (isLarge) {
+        // Spotlight: Div container (swipeable, no link), separate Text Link
+        return e('div', {
+            ref: cardRef,
+            className: `post-card is-large`,
+            ...swipeHandlers,
+            style: { touchAction: 'pan-y' }
+        }, 
+            imagePart, 
+            e('div', { className: 'post-large-details' },
+                e('a', {
+                    href: post.refLink,
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                    className: 'spotlight-text-link'
+                }, ...textContent)
+            )
+        );
+    }
+
+    // Grid Item: Anchor container (clickable card)
     return e('a', {
         ref: cardRef,
         href: post.refLink,
-        // Only apply scroll-reveal class if NOT large
-        className: `post-card ${isLarge ? 'is-large' : 'is-medium scroll-reveal'}`,
+        className: `post-card is-medium scroll-reveal`,
         target: '_blank',
         rel: 'noopener noreferrer',
-        ...swipeHandlers,
-        style: isLarge ? { touchAction: 'pan-y' } : {},
         draggable: false,
         onDragStart: (e) => e.preventDefault()
-    }, ...content);
+    }, imagePart, e('div', { className: 'post-medium-details' }, ...textContent));
 };
 
 // --- Main Page Component ---
@@ -198,11 +227,14 @@ const ReviewPage = () => {
         ['All', ...new Set(featuresData.map(p => p.category))], 
     []);
 
-    const spotlightPost = featuresData[spotlightIndex];
+    // Determine items for spotlight (limited)
+    const spotlightItems = useMemo(() => featuresData.slice(0, SPOTLIGHT_LIMIT), []);
+    const spotlightPost = spotlightItems[spotlightIndex];
     
+    // Grid items should not include spotlight items to avoid duplication and shifting
     const gridSource = useMemo(() => {
-        return featuresData.filter((_, index) => index !== spotlightIndex);
-    }, [spotlightIndex]);
+        return featuresData.slice(SPOTLIGHT_LIMIT);
+    }, []);
 
     const filteredGridItems = useMemo(() => {
         if (activeCategory === 'All') return gridSource;
@@ -223,15 +255,15 @@ const ReviewPage = () => {
     // Auto-advance logic: 8 seconds
     useEffect(() => {
         const timer = setInterval(() => {
-            setSpotlightIndex((prev) => (prev + 1) % featuresData.length);
-        }, 8000);
+            setSpotlightIndex((prev) => (prev + 1) % spotlightItems.length);
+        }, 10000);
         return () => clearInterval(timer);
-    }, [spotlightIndex]); // Dependency on index ensures reset on interaction
+    }, [spotlightItems.length]);
 
     const handlers = useSwipeable({
-        onSwipedLeft: () => setSpotlightIndex((prev) => (prev + 1) % featuresData.length),
-        onSwipedRight: () => setSpotlightIndex((prev) => (prev - 1 + featuresData.length) % featuresData.length),
-        preventDefaultTouchmoveEvent: true,
+        onSwipedLeft: () => setSpotlightIndex((prev) => (prev + 1) % spotlightItems.length),
+        onSwipedRight: () => setSpotlightIndex((prev) => (prev - 1 + spotlightItems.length) % spotlightItems.length),
+        preventDefaultTouchmoveEvent: false, // Allow vertical scroll on mobile
         trackMouse: true
     });
 
@@ -249,7 +281,7 @@ const ReviewPage = () => {
                 e(PostCard, { post: spotlightPost, isLarge: true, swipeHandlers: handlers },
                     // Indicators are now children of PostCard to sit inside the image container
                     e('div', { className: 'spotlight-indicators' },
-                        featuresData.map((_, idx) => 
+                        spotlightItems.map((_, idx) => 
                             e('div', {
                                 key: idx,
                                 className: `c-dot ${idx === spotlightIndex ? 'is-active' : ''}`,

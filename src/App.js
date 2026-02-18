@@ -21,9 +21,9 @@ import BannerManager from './BannerManager';
 import Login from './Login';
 import UpdateSizeChart from './UpdateSizeChart';
 import UpdateImage from './UpdateImage';
-import PrivateRoute from './PrivateRoute'; // Import PrivateRoute
+import PrivateRoute from './PrivateRoute';
 import WhatWeDo from './WhatWeDo';
-import FaQsPage from './FaQsPage'
+import FaQsPage from './FaQsPage';
 import TermOfService from './TermOfService';
 import PrivacyPolicy from './PrivacyPolicy';
 import ReturnPolicy from './ReturnPolicy';
@@ -40,30 +40,29 @@ import Lookbook from './Lookbook';
 import LookbookPage from './LookbookPage';
 import PopupExamples from './Popup';
 import PopupAdmin from './PopupManager';
-<<<<<<< HEAD
-=======
-import AthletesPage from './AthletesPage';
+import Atleta from './Atleta';
 import CommunityPage from './CommunityPage';
-import EarlyAccess from './EarlyAccess';
->>>>>>> ea5d65dfe8d58888ae832586605d18e5de23fc91
-
+import UPXSTATS from './UPXSTATS';
+import SplashScreen from './SplashScreen';
 
 function App() {
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [message, setMessage] = useState('');
+  const [showSplash, setShowSplash] = useState(() => window.location.pathname === '/');
 
-
+  // Fetch products
   useEffect(() => {
     fetch('https://my-product-api.stats-webdev.workers.dev/?id=1')
       .then((response) => response.json())
       .then((data) => {
-        setProducts(data);  // Set products data
+        setProducts(data);
       })
       .catch((error) => console.error('Error fetching product data:', error));
   }, []);
 
+  // Restore cart from localStorage
   useEffect(() => {
     const savedCart = localStorage.getItem('cart');
     if (savedCart) {
@@ -72,36 +71,46 @@ function App() {
   }, []);
 
   // Automatically remove products with quantity 0
-useEffect(() => {
-  const filteredCart = cart.filter((item) => item.quantity > 0);
-  if (filteredCart.length !== cart.length) {
-    setCart(filteredCart);
-  }
-}, [cart]);
+  useEffect(() => {
+    const filteredCart = cart.filter((item) => item.quantity > 0);
+    if (filteredCart.length !== cart.length) {
+      setCart(filteredCart);
+    }
+  }, [cart]);
 
+  // Persist cart to localStorage
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
+
   // Adjust cart quantities based on stock
   useEffect(() => {
     if (cart.length > 0 && products.length > 0) {
       const adjustedCart = cart.map((item) => {
         const product = products.find((p) => p.ID === item.ID);
-        if (!product) return item; // Skip if product not found
-  
+        if (!product) return item;
+
         const stock = product.Colors[item.selectedColor][item.selectedSize];
         if (item.quantity > stock) {
-          return { ...item, quantity: stock }; // Adjust quantity to stock
+          return { ...item, quantity: stock };
         }
-        return item; // No adjustment needed
+        return item;
       });
-  
-      // Only update cart if adjustments were made
+
       if (JSON.stringify(cart) !== JSON.stringify(adjustedCart)) {
         setCart(adjustedCart);
       }
     }
   }, [cart, products]);
+
+  // Restore auth from localStorage
+  useEffect(() => {
+    const storedAuth = localStorage.getItem('isAuthenticated');
+    if (storedAuth === 'true') {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
   const addToCart = (product) => {
     const stock = products.find((item) => item.ID === product.ID).Colors[product.selectedColor][product.selectedSize];
     const existingProduct = cart.find(
@@ -110,7 +119,7 @@ useEffect(() => {
         item.selectedColor === product.selectedColor &&
         item.selectedSize === product.selectedSize
     );
-  
+
     if (existingProduct) {
       if (existingProduct.quantity + product.quantity > stock) {
         setMessage(`You cannot add more than ${stock} items to the cart.`);
@@ -151,10 +160,11 @@ useEffect(() => {
       })
     );
   };
-  
+
   const decreaseQuantity = (productID, selectedSize, selectedColor) => {
     setCart(
-      cart.map((item) =>
+      cart
+        .map((item) =>
           item.ID === productID && item.selectedSize === selectedSize && item.selectedColor === selectedColor
             ? { ...item, quantity: Math.max(item.quantity - 1, 0) }
             : item
@@ -162,78 +172,70 @@ useEffect(() => {
         .filter((item) => item.quantity > 0)
     );
   };
+
   const removeAllFromCart = () => {
     setCart([]);
   };
 
-  useEffect(() => {
-    const storedAuth = localStorage.getItem('isAuthenticated');
-    if (storedAuth === 'true') {
-      setIsAuthenticated(true);
-    }
-  }, []);
-  
   return (
     <div>
+      {showSplash && (
+        <SplashScreen onDone={() => setShowSplash(false)} />
+      )}
       <div>{message && <div className="alert">{message}</div>}</div>
-    <Router>
-      <Routes>
-        <Route path="/" element={<ProductsList  cart={cart}  increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart} />} />
-        <Route path="/cart" element={<Cart cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart}/>} />
-        <Route path="/checkout" element={<Checkout cart={cart} setCart={setCart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart}/>} />
-        <Route path="/:productId/:color" element={<ProductDetails addToCart={addToCart} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart} />} /> {/* Size selection page */}
-        <Route path="/:productId" element={<ProductDetails addToCart={addToCart} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart} />} /> {/* Size selection page */}
-        <Route path="/cart-button"  element={<CartButtonPage cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart}/>}/>
-        <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
-        <Route path="/Countdown" element={<Countdown />} />
-        <Route path="/AllProduct" element={<AllProductCards cart={cart} addToCart={addToCart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart}/>} />
-        <Route path="/AllProduct/:productType" element={<AllProductCards cart={cart} addToCart={addToCart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart}/>} />
-        <Route path="/AllProduct/:productType/:subType?" element={<AllProductCards cart={cart} addToCart={addToCart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart}/>} />
-        <Route path="/Series/:seriesName" element={<SeriesPage products={products} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart}/>} />
-        <Route path="/Series/:seriesName/:typeName?" element={<SeriesPage products={products} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart}/>} />     
-        <Route path="/series/:seriesName/id/:value" element={<SeriesPage products={products} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart}/>} />     
+      <Router>
+        <Routes>
+          <Route path="/" element={<ProductsList cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart} />} />
+          <Route path="/cart" element={<Cart cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart} />} />
+          <Route path="/checkout" element={<Checkout cart={cart} setCart={setCart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart} />} />
+          <Route path="/:productId/:color" element={<ProductDetails addToCart={addToCart} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart} />} />
+          <Route path="/:productId" element={<ProductDetails addToCart={addToCart} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart} />} />
+          <Route path="/cart-button" element={<CartButtonPage cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart} />} />
+          <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+          <Route path="/Countdown" element={<Countdown />} />
+          <Route path="/AllProduct" element={<AllProductCards cart={cart} addToCart={addToCart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart} />} />
+          <Route path="/AllProduct/:productType" element={<AllProductCards cart={cart} addToCart={addToCart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart} />} />
+          <Route path="/AllProduct/:productType/:subType?" element={<AllProductCards cart={cart} addToCart={addToCart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart} />} />
+          <Route path="/Series/:seriesName" element={<SeriesPage products={products} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart} />} />
+          <Route path="/Series/:seriesName/:typeName?" element={<SeriesPage products={products} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart} />} />
+          <Route path="/series/:seriesName/id/:value" element={<SeriesPage products={products} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart} />} />
+          <Route path="/fabtech/:fabtechName" element={<FabTechPage products={products} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart} />} />
+          <Route path="/Type/:productType" element={<ProductType products={products} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart} />} />
+          <Route path="/AboutUs" element={<AboutUs />} />
+          <Route path="/Location" element={<Location />} />
+          <Route path="/Features" element={<FeaturesUpdate />} />
+          <Route path="/Image" element={<UpdateImage />} />
+          <Route path="/Whatwedo" element={<WhatWeDo />} />
+          <Route path="/Howwework" element={<HowWeWork />} />
+          <Route path="/Faqs" element={<FaQsPage />} />
+          <Route path="/Termsofservice" element={<TermOfService />} />
+          <Route path="/Privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="/ReturnPolicy" element={<ReturnPolicy />} />
+          <Route path="/Whywedoit" element={<WhyWeDoIt />} />
+          <Route path="/Whoweare" element={<WhoWeAre />} />
+          <Route path="/Materialcare" element={<MaterialCare />} />
+          <Route path="/Reviewpage" element={<ReviewPage />} />
+          <Route path="/FabricTech" element={<FabricTech />} />
+          <Route path="/Lookbook" element={<Lookbook />} />
+          <Route path="/lookbook/:id" element={<LookbookPage />} />
+          <Route path="/Atletas" element={<Atleta />} />
+          <Route path="/Community" element={<CommunityPage />} />
+          <Route path="/UPXSTATS" element={<UPXSTATS />} />
 
-       <Route path="/fabtech/:fabtechName" element={<FabTechPage products={products} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart}/>} />
-        <Route path="/Type/:productType" element={<ProductType products={products} cart={cart} increaseQuantity={increaseQuantity} decreaseQuantity={decreaseQuantity} removeAllFromCart={removeAllFromCart}/>} />
-        <Route path="/AboutUs" element={<AboutUs />} />
-        <Route path="/Location" element={<Location />} />
-        <Route path="/Features" element={<FeaturesUpdate />} />
-        <Route path="/Image" element={<UpdateImage />} />
-        <Route path="/Whatwedo" element={<WhatWeDo />} />
-        <Route path="/Howwework" element={<HowWeWork />} />
-        <Route path="/Faqs" element={<FaQsPage />} />
-        <Route path="/Termsofservice" element={<TermOfService />} />
-        <Route path="/Privacypolicy" element={<PrivacyPolicy />} />
-        <Route path="/ReturnPolicy" element={<ReturnPolicy />} />
-        <Route path="/Whywedoit" element={<WhyWeDoIt />} />
-        <Route path="/Whoweare" element={<WhoWeAre />} />
-        <Route path="/Materialcare" element={<MaterialCare />} />
-        <Route path="/Reviewpage" element={<ReviewPage />} />
-        <Route path="/FabricTech" element={<FabricTech />} />
-        <Route path="/Lookbook" element={<Lookbook />} />
-        <Route path="/lookbook/:id" element={<LookbookPage />} />
-<<<<<<< HEAD
-=======
-        <Route path="/Athletes" element={<AthletesPage />} />
-        <Route path="/Community" element={<CommunityPage />} />
-        <Route path="/EarlyAccess" element={<EarlyAccess products={products} />} />
->>>>>>> ea5d65dfe8d58888ae832586605d18e5de23fc91
-
-        <Route element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
-          <Route path="/popup" element={<PopupAdmin />} />
-          <Route path="/Dashboard" element={<AdminDashboard />} />
-          <Route path="/Admin" element={<Admin />} />
-          <Route path="/Add" element={<AddProductForm />} />
-          <Route path="/Ads" element={<AdsManager />} />
-          <Route path="/Banner" element={<BannerManager />} />
-           <Route path="/UpdateType" element={<UpdateProductType />} />
-          <Route path="/SizeChart" element={<UpdateSizeChart />} />
-          <Route path="/Thumbnail" element={<UpdateThumbnail />} />
-
-        </Route>
-      </Routes>
-    </Router>
-   </div>
+          <Route element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
+            <Route path="/popup" element={<PopupAdmin />} />
+            <Route path="/Dashboard" element={<AdminDashboard />} />
+            <Route path="/Admin" element={<Admin />} />
+            <Route path="/Add" element={<AddProductForm />} />
+            <Route path="/Ads" element={<AdsManager />} />
+            <Route path="/Banner" element={<BannerManager />} />
+            <Route path="/UpdateType" element={<UpdateProductType />} />
+            <Route path="/SizeChart" element={<UpdateSizeChart />} />
+            <Route path="/Thumbnail" element={<UpdateThumbnail />} />
+          </Route>
+        </Routes>
+      </Router>
+    </div>
   );
 }
 

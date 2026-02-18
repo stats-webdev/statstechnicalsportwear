@@ -4,7 +4,7 @@
     --color-ink: #111111;
     --color-mute: #888888;
     --color-border: #f0f0f0;
-    --font-serif: 'Oswald', sans-serif;
+    --font-serif: 'Inter', sans-serif;
     --font-display: 'Syncopate', sans-serif;
     --font-sans: 'Inter', sans-serif;
     --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
@@ -29,16 +29,15 @@
 }
 
 .editorial-hero {
-    height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
     background-image: url('https://i.pinimg.com/1200x/a1/fb/47/a1fb47633a85ccc9e2d3c0a3a01a163f.jpg');
-    background-size : cover;
+    background-size: cover;
+    background-position: center; /* Center the image */
     position: relative;
     margin-bottom: 0%;
     height: 100vh;
-    
 }
 
 .editorial-hero::before {
@@ -124,20 +123,23 @@
     grid-template-columns: 1fr;
     gap: 0rem;
     margin-bottom: 1rem; 
-    cursor: grab;
+    /* Remove grab cursor from whole card, apply only to image below */
     user-select: none;
     -webkit-user-select: none;
 }
 
-.is-large:active {
-    cursor: grabbing;
-}
-
+/* Apply grab cursor specifically to the swipable image area */
 .is-large .post-image-container {
-    height: 85vh; /* Increased size for impact */
-    min-height: 700px; /* Enforce minimum fixed size */
+    height: 85vh; 
+    min-height: 700px; 
     width: 100%;
     position: relative;
+    cursor: grab;
+    touch-action: pan-y; /* Critical for mobile scroll */
+}
+
+.is-large .post-image-container:active {
+    cursor: grabbing;
 }
 
 .is-large .post-headline {
@@ -147,9 +149,20 @@
 .is-large .post-subheadline {
     font-size: 1.25rem;
     line-height: 1.6;
-    color: var(--color-mute); /* Fixed undefined variable */
+    color: var(--color-mute); 
     max-width: 800px;
     margin-bottom: 2rem;
+}
+
+/* Spotlight specific link style */
+.spotlight-text-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
+}
+.spotlight-text-link:hover {
+    opacity: 0.7;
 }
 
 /* CAROUSEL INDICATORS */

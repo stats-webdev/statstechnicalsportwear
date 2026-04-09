@@ -1,13 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.655cba44.css",
-    "main.js": "/static/js/main.62c7bdce.js",
+    "main.css": "/static/css/main.a630eb54.css",
+    "main.js": "/static/js/main.63bef301.js",
     "static/js/453.1a6905d2.chunk.js": "/static/js/453.1a6905d2.chunk.js",
     "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.2582b0e4bcf85eceead0.ttf",
     "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.1815e00441357e01619e.ttf",
     "static/media/fa-solid-900.woff2": "/static/media/fa-solid-900.2463b90d9a316e4e5294.woff2",
     "static/media/trebuc.ttf": "/static/media/trebuc.8dc5d2dd53924baa495c.ttf",
     "static/media/fa-brands-400.woff2": "/static/media/fa-brands-400.c210719e60948b211a12.woff2",
+    "static/media/SpaceGrotesk-Medium.ttf": "/static/media/SpaceGrotesk-Medium.11c47748414ab8a89db0.ttf",
+    "static/media/SpaceGrotesk-Regular.ttf": "/static/media/SpaceGrotesk-Regular.c092257afdb650be08eb.ttf",
+    "static/media/SpaceGrotesk-SemiBold.ttf": "/static/media/SpaceGrotesk-SemiBold.bdb4c5c6c7698194f4ef.ttf",
+    "static/media/SpaceGrotesk-Bold.ttf": "/static/media/SpaceGrotesk-Bold.0f25a4444d02faac4f60.ttf",
     "static/media/fa-regular-400.ttf": "/static/media/fa-regular-400.914997e1bdfc990d0897.ttf",
     "static/media/Futura Heavy Italic font.ttf": "/static/media/Futura Heavy Italic font.815a0751cf3a349980ef.ttf",
     "static/media/Futura Heavy font.ttf": "/static/media/Futura Heavy font.af72c25a6945b0f48abb.ttf",
@@ -18,12 +22,12 @@
     "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.da94ef451f4969af06e6.ttf",
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.ea8f94e1d22e0d35ccd4.woff2",
     "index.html": "/index.html",
-    "main.655cba44.css.map": "/static/css/main.655cba44.css.map",
-    "main.62c7bdce.js.map": "/static/js/main.62c7bdce.js.map",
+    "main.a630eb54.css.map": "/static/css/main.a630eb54.css.map",
+    "main.63bef301.js.map": "/static/js/main.63bef301.js.map",
     "453.1a6905d2.chunk.js.map": "/static/js/453.1a6905d2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.655cba44.css",
-    "static/js/main.62c7bdce.js"
+    "static/css/main.a630eb54.css",
+    "static/js/main.63bef301.js"
   ]
 }
